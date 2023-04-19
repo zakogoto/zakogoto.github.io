@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/marvel_db/static/css/main.8360bb79.css",
-    "main.js": "/marvel_db/static/js/main.c8b04ba6.js",
-    "static/media/Decorationheader-bg.svg": "/marvel_db/static/media/Decorationheader-bg.3e35cfaaf1fc6244e41e.svg",
-    "static/media/Avengers.svg": "/marvel_db/static/media/Avengers.cc878d31c3065a3c049e.svg",
-    "static/media/app-bg.svg": "/marvel_db/static/media/app-bg.29bcc336f77f1faf051e.svg",
-    "static/media/Avengers-logo.svg": "/marvel_db/static/media/Avengers-logo.cba1ffe1881a8e210521.svg",
-    "static/media/x-men.png": "/marvel_db/static/media/x-men.9eee224ae67788162383.png",
-    "static/media/x-men-cover.jpg": "/marvel_db/static/media/x-men-cover.fa5f4d9ed13e0f0070ee.jpg",
-    "static/media/error.gif": "/marvel_db/static/media/error.42292aa12b6bc303ce99.gif",
-    "index.html": "/marvel_db/index.html",
-    "main.8360bb79.css.map": "/marvel_db/static/css/main.8360bb79.css.map",
-    "main.c8b04ba6.js.map": "/marvel_db/static/js/main.c8b04ba6.js.map"
+    "main.css": "/static/css/main.65d6d49f.css",
+    "main.js": "/static/js/main.58b27964.js",
+    "static/media/Decorationheader-bg.svg": "/static/media/Decorationheader-bg.3e35cfaaf1fc6244e41e.svg",
+    "static/media/Avengers.svg": "/static/media/Avengers.cc878d31c3065a3c049e.svg",
+    "static/media/app-bg.svg": "/static/media/app-bg.29bcc336f77f1faf051e.svg",
+    "static/media/Avengers-logo.svg": "/static/media/Avengers-logo.cba1ffe1881a8e210521.svg",
+    "static/media/x-men.png": "/static/media/x-men.9eee224ae67788162383.png",
+    "static/media/x-men-cover.jpg": "/static/media/x-men-cover.fa5f4d9ed13e0f0070ee.jpg",
+    "static/media/error.gif": "/static/media/error.42292aa12b6bc303ce99.gif",
+    "index.html": "/index.html",
+    "main.65d6d49f.css.map": "/static/css/main.65d6d49f.css.map",
+    "main.58b27964.js.map": "/static/js/main.58b27964.js.map"
   },
   "entrypoints": [
-    "static/css/main.8360bb79.css",
-    "static/js/main.c8b04ba6.js"
+    "static/css/main.65d6d49f.css",
+    "static/js/main.58b27964.js"
   ]
 }
