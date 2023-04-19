@@ -1,6 +1,5 @@
 {
   "name": "marvel_db",
-  "homepage": "https://zakogoto.github.io/marvel_db",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
