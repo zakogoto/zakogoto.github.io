@@ -1,0 +1,27 @@
+@import '../../style/variables'
+
+.header
+    display: flex
+    justify-content: space-between
+    height: 37px
+    margin-bottom: 50px
+    font-weight: 700
+    font-size: 28px
+    line-height: 33px
+    color: $text-color
+    span
+        color: $main-color
+    &__divider
+        margin: 0 8px
+    &__toggle
+        display: flex
+    &__toggler
+        cursor: pointer
+        font-weight: 700
+        font-size: 28px
+        line-height: 33px
+        color: $text-color
+        border: none
+        background: #fff
+        &_active
+            color: $main-color

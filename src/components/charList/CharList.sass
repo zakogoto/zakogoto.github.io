@@ -1,0 +1,31 @@
+@import '../../style/variables'
+.char-list
+    position: relative
+    width: 650px
+    padding-bottom: 45px
+    &__wrap
+        display: grid
+        grid-template-columns: repeat(3, 200px)
+        column-gap: 25px
+        grid-auto-rows: 318px
+        row-gap: 30px
+    &__card
+        width: 200px
+        height: 318px
+        &_selected
+            transform: translateY(-6px)
+            filter: drop-shadow(0px 5px 20px $main-color)
+    &__img
+        height: 200px
+        width: 200px
+        img
+            height: 100%
+            width: 200px
+    &__name
+        height: 118px
+        padding: 15px
+        background: $bg-color
+        font-weight: 700
+        font-size: 22px
+        line-height: 26px
+        color: #FFFFFF

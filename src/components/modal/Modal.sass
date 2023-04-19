@@ -1,0 +1,37 @@
+@import '../../style/variables'
+
+.modal
+    margin-top: 50px
+    width: 425px
+    padding: 25px 20px 25px 25px
+    background: #fff
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25)
+    &__title, &__success-text, &__error
+        font-weight: 700
+        font-size: 18px
+        line-height: 21px
+        color: $text-color
+        margin-bottom: 15px
+    &__form
+        display: flex
+        justify-content: space-between
+    input
+        width: 250px
+        height: 38px
+        background: #FFFFFF
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+        border: none
+        margin-right: 24px
+        padding: 10px
+    &__success
+        margin-top: 14px
+        display: flex
+        width: 100%
+        justify-content: space-between
+        align-items: center
+    &__success-text
+        margin: 0
+        color: #03710E
+    &__error
+        margin: 25px 0 0 0
+        color: $main-color

@@ -1,0 +1,51 @@
+.btn
+    position: relative
+    width: 101px
+    height: 38px
+    overflow: hidden
+    color: #FFFFFF
+    border: none
+    text-decoration: none
+    text-align: center
+    line-height: 38px
+    &_long
+        display: block
+        width: 170px
+        margin: 0 auto
+    &_main
+        margin-top: 45px
+        &:disabled
+            filter: grayscale(.5)
+    &::before, &::after
+        content: ''
+        position: absolute
+        width: 10px
+        height: 10px
+        background: #FFFFFF
+        border: 1px solid #FFFFFF
+        transform: rotate(45deg)
+        font-weight: 400
+        font-size: 14px
+        line-height: 16px
+        border: none
+    &::before
+        top: -6px
+        left: -6px
+    &::after
+        bottom: -6px
+        right: -6px 
+    &_red
+        background: $main-color
+        &:disabled
+            filter: grayscale(.5)
+    &_gray
+        background: #5C5C5C
+    &_dark-bg
+        &::before, &::after
+            background: $bg-color
+    &:hover
+        transform: translateY(-5px)
+    &:disabled
+        filter: grayscale(.5)
+        
+        
