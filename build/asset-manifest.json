@@ -1,20 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.65d6d49f.css",
-    "main.js": "/static/js/main.58b27964.js",
+    "main.css": "/static/css/main.b3f01cf0.css",
+    "main.js": "/static/js/main.1db3365c.js",
     "static/media/Decorationheader-bg.svg": "/static/media/Decorationheader-bg.3e35cfaaf1fc6244e41e.svg",
     "static/media/Avengers.svg": "/static/media/Avengers.cc878d31c3065a3c049e.svg",
     "static/media/app-bg.svg": "/static/media/app-bg.29bcc336f77f1faf051e.svg",
     "static/media/Avengers-logo.svg": "/static/media/Avengers-logo.cba1ffe1881a8e210521.svg",
-    "static/media/x-men.png": "/static/media/x-men.9eee224ae67788162383.png",
-    "static/media/x-men-cover.jpg": "/static/media/x-men-cover.fa5f4d9ed13e0f0070ee.jpg",
     "static/media/error.gif": "/static/media/error.42292aa12b6bc303ce99.gif",
     "index.html": "/index.html",
-    "main.65d6d49f.css.map": "/static/css/main.65d6d49f.css.map",
-    "main.58b27964.js.map": "/static/js/main.58b27964.js.map"
+    "main.b3f01cf0.css.map": "/static/css/main.b3f01cf0.css.map",
+    "main.1db3365c.js.map": "/static/js/main.1db3365c.js.map"
   },
   "entrypoints": [
-    "static/css/main.65d6d49f.css",
-    "static/js/main.58b27964.js"
+    "static/css/main.b3f01cf0.css",
+    "static/js/main.1db3365c.js"
   ]
 }
