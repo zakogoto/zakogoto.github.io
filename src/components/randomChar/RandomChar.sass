@@ -2,10 +2,13 @@
 
 .random-char
     display: grid
-    max-height: 250px
+    // max-height: 250px
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25)
     grid-template-columns: repeat(2, 550px)
+    align-items: center
+    grid-auto-rows: 250px
     &__about, &__new
+        height: 100%
         padding: 35px 35px 35px 40px
     &__about
         display: grid

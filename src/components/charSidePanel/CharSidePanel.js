@@ -1,84 +1,54 @@
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'; 
 
 import Spinner from "../UI/Spinner"
 import ErrorMessage from '../UI/ErrorMessage'
-import MarvelServices from '../../services/MarvelServices';
+import useMarvelServices from '../../services/MarvelServices';
 import Skeleton from '../skeleton/Skeleton';
 
 import './CharSidePanel.sass'
 
-export default class CharSidePanel extends Component {
+const CharSidePanel = (props) => {
 
-    state = {
-        char: null,
-        loading: false,
-        error: false
-    }
+    const [char, setChar] = useState(null)
 
-    MarvelService = new MarvelServices();
+    const {error, getCharacter, loading, clearError} = useMarvelServices();
 
-    componentDidMount() {
-        this.updateChar();
-    }
+    useEffect(() => {
+        updateChar()
+    }, [props.charId])
 
-    componentDidUpdate(prevProps){
-        if (this.props.charId !== prevProps.charId) {
-            this.updateChar();
-        }
-    }
+    useEffect(() => {
+        updateChar()
+    }, [])
 
-    updateChar = () => {
-        const {charId} = this.props;
+    const updateChar = () => {
+        const {charId} = props;
         if (!charId) {
             return;
         }
-
-        this.onCharLoading();
-
-        this.MarvelService
-            .getCharacter(charId)
-            .then(this.onCharLoaded)
-            .catch(this.onError);
+        
+        clearError()
+        getCharacter(charId)
+            .then(onCharLoaded);
     }
 
-    onCharLoaded = (char) => {
-        this.setState({
-            char, 
-            loading: false
-        })
+    const onCharLoaded = (char) => {
+        setChar(char)
     }
 
-    onCharLoading = () => {
-        this.setState({
-            loading: true
-        })
-    }
-
-    onError = () => {
-        this.setState({
-            loading: false,
-            error: true
-        })
-    }
-
-
-    render(){
-        const {char, loading, error} = this.state;
-
-        const skeleton = char || loading || error ? null : <Skeleton/>;
-        const errorMessage = error ? <ErrorMessage/> : null;
-        const spinner = loading ? <Spinner/> : null;
-        const content = !(loading || error || !char) ? <View char={char}/> : null;
-        return(
-            <section className='char-side-panel'>
-                {skeleton}
-                {errorMessage}
-                {spinner}
-                {content}
-            </section>
-        )
-    }
+    const skeleton = char || loading || error ? null : <Skeleton/>;
+    const errorMessage = error ? <ErrorMessage/> : null;
+    const spinner = loading ? <Spinner/> : null;
+    const content = !(loading || error || !char) ? <View char={char}/> : null;
+    return(
+        <section className='char-side-panel'>
+            {skeleton}
+            {errorMessage}
+            {spinner}
+            {content}
+        </section>
+    )
 }
 
 const View = ({char}) => {
@@ -127,3 +97,5 @@ const View = ({char}) => {
 CharSidePanel.propTypes = {
     charId: PropTypes.number,
 }
+
+export default CharSidePanel;
