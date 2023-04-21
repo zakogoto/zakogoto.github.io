@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import useMarvelServices from '../../services/MarvelServices';
 import Spinner from "../UI/Spinner"
 import ErrorMessage from '../UI/ErrorMessage'
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 import './ComicsList.sass'

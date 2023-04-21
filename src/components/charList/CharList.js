@@ -95,7 +95,7 @@ function CharList(props) {
     console.log('Render')
 
     return (
-        <section className='char-list'>
+        <section className='char-list bg-decoration'>
             {errorMessage}
             {spinner}
             {items}
