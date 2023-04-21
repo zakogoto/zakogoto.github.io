@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import useMarvelServices from '../../services/MarvelServices';
 import Spinner from "../UI/Spinner"
 import ErrorMessage from '../UI/ErrorMessage'
+import { Link, NavLink } from 'react-router-dom';
+
 
 import './ComicsList.sass'
 
@@ -54,7 +56,8 @@ const ComicsList = (props) => {
         //     imgStyle = {'objectFit' : 'contain'};
         // }
         return(
-            <li
+            <Link
+                to={`/comics/${comic.id}`}
                 ref={el => itemRefs.current[i] = el}
                 tabIndex={0}
                 key={comic.id}
@@ -64,7 +67,7 @@ const ComicsList = (props) => {
                 </div>
                 <div className="comics-list__title">{comic.title}</div>
                 <div className="comics-list__price">{comic.price}$</div>
-            </li>
+            </Link>
         )
     })
 

@@ -1,36 +1,19 @@
-import { Component } from 'react';
+import { useState } from 'react';
 
 import './AppHeader.sass';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = (props) => {
-
-    const BtnsData = [
-        {name:'char', label:'Characters' },
-        {name:'comics', label:'Comics' }
-    ]
-    const buttons = BtnsData.map((item, i) => {
-        const divider = item.name === BtnsData[1].name ? (null) : (<div className="header__divider">/</div>) 
-        const active = item.name === props.typeOfPage;
-        const clazz = active ? ('header__toggler header__toggler_active') : ('header__toggler')
-        return (
-            <>
-            <button 
-                key={i}
-                name={item.name} 
-                className={clazz}
-                data-toggle={item.name}
-                onClick={() => props.togglePage(item.name)}>
-                    {item.label} 
-                </button>
-            {divider}
-            </>
-        )
-    })
     return(
         <header className='header'>
-            <h3><span>Marvel</span> information portal</h3>
+            <Link to={'/'} className={'header__main'}>
+                <span>Marvel</span> information portal
+            </Link>
             <div className="header__toggle">
-                {buttons}
+                {/* {buttons} */}
+                <NavLink end to={'/'} className={({isActive}) => isActive ? 'header__toggler header__toggler_active': 'header__toggler'}>Char</NavLink>
+                <div className="header__divider">/</div>
+                <NavLink to={'/comics'} className={({isActive}) => isActive ? 'header__toggler header__toggler_active': 'header__toggler'}>Comics</NavLink>
             </div>
         </header>
     )

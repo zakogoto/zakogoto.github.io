@@ -7,6 +7,7 @@
   margin: 0
   padding: 0
   box-sizing: border-box
+  text-decoration: none
 ul, li, dl
     list-style-type: none
     margin: 0
@@ -40,6 +41,18 @@ h1, h2, h3
 .pulse
   animation: pulse 1.5s ease-in-out .5s infinite
 
+.page-404
+  font-weight: 700
+  font-size: 28px
+  line-height: 33px
+  color: $text-color
+  &__btn
+    text-align: center
+    text-decoration: none
+    display: block
+    margin: 20px auto
+    color: $main-color
+
 @keyframes pulse
   0%
     opacity: 1
@@ -47,4 +60,3 @@ h1, h2, h3
     opacity: .4
   100%
     opacity: 1
-    

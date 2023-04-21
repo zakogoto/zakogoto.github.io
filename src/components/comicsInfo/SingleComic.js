@@ -3,19 +3,20 @@ import { useEffect, useState } from 'react'
 import Spinner from "../UI/Spinner"
 import ErrorMessage from '../UI/ErrorMessage'
 import useMarvelServices from '../../services/MarvelServices';
+import {Link} from 'react-router-dom'
 
-import './ComicsInfo.sass'
+import './singleComic.sass'
 
 // import comicsCover from '../../resources/img/x-men.png'
 
 
-export default function ComicsInfo(props) {
+export default function SingleComic(props) {
     const [comic, setComic] = useState(null);
 
     const {error, loading, getComic} = useMarvelServices();
 
-    const onComicLoaded = (comics) => {
-        setComic(comics);
+    const onComicLoaded = (comic) => {
+        setComic(comic);
     }
 
     useEffect(() => {
@@ -28,7 +29,7 @@ export default function ComicsInfo(props) {
             return;
         }
         getComic(comicId)
-            .then(onComicLoaded(comicId));
+            .then(onComicLoaded);
     }
 
     const errorMessage = error ? <ErrorMessage/> : null;
@@ -45,7 +46,7 @@ export default function ComicsInfo(props) {
 }
 
 const View = ({comic}) => {
-    const {title, description, thumbnail, pages, price} = comic;
+    const {title, description, thumbnail, pages, price, language} = comic;
 
     let imgStyle = {'objectFit' : 'cover'};
     if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
@@ -60,10 +61,10 @@ const View = ({comic}) => {
                     {description}
                 </p>
                 <p className="comics-info__amount-page">{pages} pages</p>
-                <p className="comics-info__language">Language: en-us</p>
+                <p className="comics-info__language">Language: {language}</p>
                 <div className="comics-info__price">{price}$</div>
             </div>
-            <button className='comics-info__btn'>Back to all</button>
+            <Link to={'/comics'} className='comics-info__btn'>Back to all</Link>
         </>
     )
 }

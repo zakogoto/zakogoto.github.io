@@ -44,10 +44,11 @@ const useMarvelServices = () => {
     const _transformComic = (comic) => {
         return {
             id: comic.id,
-            titile: comic.title,
+            title: comic.title,
             description: comic.description ? `${comic.description.slice(0, 210)}...` : 'There is no description for this comic',
             thumbnail: comic.thumbnail.path + '.' + comic.thumbnail.extension,
             price: comic.prices[0].price,
+            language: comic.textObjects.language || 'en-us',
             pages: comic.pageCount
         }
     }

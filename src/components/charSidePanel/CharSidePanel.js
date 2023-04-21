@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types'; 
 
+import {Link} from 'react-router-dom'
+
 import Spinner from "../UI/Spinner"
 import ErrorMessage from '../UI/ErrorMessage'
 import useMarvelServices from '../../services/MarvelServices';
@@ -86,7 +88,7 @@ const View = ({char}) => {
                     // eslint-disable-next-line
                     if (i > 9) return;
                     return (
-                        <li key={i} className="char-side-panel__comics-item">{item.name}</li>
+                        <li key={i} className="char-side-panel__comics-item"><Link to={`comics/${item.resourceURI.substr(43)}`} className='char-side__link'>{item.name}</Link></li>
                     )
                 })}
         </ul>
