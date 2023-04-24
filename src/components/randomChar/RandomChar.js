@@ -4,6 +4,7 @@ import Spinner from "../UI/Spinner"
 import ErrorMessage from '../UI/ErrorMessage'
 
 import './RandomChar.sass'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const  RandomChar = () => {
 
@@ -31,20 +32,22 @@ const  RandomChar = () => {
     const spinner = loading ? <Spinner/> : null;
     const content = !(loading || error) ? <View char={char}/> : null;
     return(
-        <section className='random-char'>
-            {errorMessage}
-            {spinner}
-            {content}
-            <div className="random-char__new">
-                <p className="random-char__text">
-                    Random character for today!
-                    Do you want to get to know him better?
-                    <br /> <br />
-                    Or choose another one
-                </p>
-                <button onClick={updateChar} className='btn btn_red btn_dark-bg'>TRY IT</button>
-            </div>
-        </section>
+        <TransitionGroup component={null}>
+            <section className='random-char'>
+                    {errorMessage}
+                    {spinner}
+                    {content}
+                <div className="random-char__new">
+                    <p className="random-char__text">
+                        Random character for today!
+                        Do you want to get to know him better?
+                        <br /> <br />
+                        Or choose another one
+                    </p>
+                    <button onClick={updateChar} className='btn btn_red btn_dark-bg'>TRY IT</button>
+                </div>
+            </section>
+        </TransitionGroup>
     )
 }
 
@@ -56,21 +59,23 @@ const View = ({char}) => {
     }
     
     return (
-        <div className="random-char__about">
-            <div  className="random-char__img">
-                <img src={thumbnail} alt={name} style={imgStyle}/>
-            </div>
-            <div className="random-char__info">
-                <div className="random-char__name">{name}</div>
-                <p className="random-char__descr">
-                    {description}
-                </p>
-                <div className="random-char__btns">
-                    <a href={homepage} className='btn btn_red' rel="noreferrer" target='_blank'>HOMEPAGE</a>
-                    <a href={wiki} className='btn btn_gray' rel="noreferrer" target='_blank'>WIKI</a>
+        <CSSTransition key={name} timeout={500} in classNames={'random-char__about'}>
+            <div className="random-char__about">
+                <div  className="random-char__img">
+                    <img src={thumbnail} alt={name} style={imgStyle}/>
+                </div>
+                <div className="random-char__info">
+                    <div className="random-char__name">{name}</div>
+                    <p className="random-char__descr">
+                        {description}
+                    </p>
+                    <div className="random-char__btns">
+                        <a href={homepage} className='btn btn_red' rel="noreferrer" target='_blank'>HOMEPAGE</a>
+                        <a href={wiki} className='btn btn_gray' rel="noreferrer" target='_blank'>WIKI</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </CSSTransition>
     )
 }
 

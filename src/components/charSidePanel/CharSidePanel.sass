@@ -11,6 +11,16 @@
         grid-template-columns: 150px auto
         column-gap: 25px
         margin-bottom: 15px
+    &-enter 
+        opacity: 0
+    &-enter-active 
+        opacity: 1
+        transition: all 500ms ease-in
+    &-exit 
+        opacity: 1
+    &-exit-active 
+        opacity: 0
+        transition: all 500ms ease-in
     &__descr
         height: auto
     &__img

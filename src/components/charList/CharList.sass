@@ -15,6 +15,16 @@
         &_selected
             transform: translateY(-6px)
             filter: drop-shadow(0px 5px 20px $main-color)
+        &-enter 
+            opacity: 0
+        &-enter-active 
+            opacity: 1
+            transition: all 500ms ease-in
+        &-exit 
+            opacity: 1
+        &-exit-active 
+            opacity: 0
+            transition: all 500ms ease-in
     &__img
         height: 200px
         width: 200px

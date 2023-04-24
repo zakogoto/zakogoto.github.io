@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 import './ComicsList.sass'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const ComicsList = (props) => {
     
@@ -41,11 +42,11 @@ const ComicsList = (props) => {
 
     const itemRefs = useRef([]);
 
-    const focusOnItem = (id) => {
-        itemRefs.current.forEach(item => item.classList.remove('char-list__card_selected'));
-        itemRefs.current[id].classList.add('char-list__card_selected');
-        itemRefs.current[id].focus();
-    }
+    // const focusOnItem = (id) => {
+    //     itemRefs.current.forEach(item => item.classList.remove('char-list__card_selected'));
+    //     itemRefs.current[id].classList.add('char-list__card_selected');
+    //     itemRefs.current[id].focus();
+    // }
 
     const cards = comicsList.map((comic, i)=> {
         let imgStyle = {'objectFit' : 'cover'}
@@ -56,18 +57,24 @@ const ComicsList = (props) => {
         //     imgStyle = {'objectFit' : 'contain'};
         // }
         return(
-            <Link
-                to={`/comics/${comic.id}`}
-                ref={el => itemRefs.current[i] = el}
-                tabIndex={0}
-                key={comic.id}
-                className="comics-list__card">
-                <div className="comics-list__img">
-                    <img className="comics-list__img" src={comic.thumbnail} alt={comic.title} style={imgStyle} />
-                </div>
-                <div className="comics-list__title">{comic.title}</div>
-                <div className="comics-list__price">{comic.price}$</div>
-            </Link>
+            <CSSTransition 
+                key={comic.id} 
+                timeout={500} 
+                in
+                classNames="comics-list__card"
+            >
+                <Link
+                    to={`/comics/${comic.id}`}
+                    ref={el => itemRefs.current[i] = el}
+                    tabIndex={0}
+                    className="comics-list__card">
+                    <div className="comics-list__img">
+                        <img className="comics-list__img" src={comic.thumbnail} alt={comic.title} style={imgStyle} />
+                    </div>
+                    <div className="comics-list__title">{comic.title}</div>
+                    <div className="comics-list__price">{comic.price}$</div>
+                </Link>
+            </CSSTransition>
         )
     })
 
@@ -78,9 +85,11 @@ const ComicsList = (props) => {
         <section className='comics-list'>
             {errorMessage}
             {spinner}
-            <ul className="comics-list__wrap">
-                {cards}
-            </ul>
+            <TransitionGroup component={null}>
+                <ul className="comics-list__wrap">
+                    {cards}
+                </ul>
+            </TransitionGroup>
             <button 
                 className="btn btn_red btn_long btn_main"
                 style={{display: comicsEnded? 'none' : 'block'}}

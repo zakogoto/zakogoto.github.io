@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400700&family=Roboto+Condensed:wght@400700&display=swap')
 @import './variables'
 @import './buttons'
 
@@ -59,3 +59,21 @@ h1, h2, h3
     opacity: .4
   100%
     opacity: 1
+.page 
+  position: absolute
+  left: 15px
+  right: 15px
+  &-enter 
+    opacity: 0
+    transform: scale(1.1)
+  &-enter-active 
+    opacity: 1
+    transform: scale(1)
+    transition: opacity 600ms, transform 600ms
+  &-exit 
+    opacity: 1
+    transform: scale(1)
+  &-exit-active 
+    opacity: 0
+    transform: scale(0.9)
+    transition: opacity 600ms, transform 600ms

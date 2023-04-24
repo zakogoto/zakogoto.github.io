@@ -1,10 +1,7 @@
 import { lazy, Suspense } from "react";
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom/cjs/react-router-dom.min";
-import {Routes, BrowserRouter as Router, Route, Link } from "react-router-dom"
+import {Routes, BrowserRouter as Router, Route} from "react-router-dom"
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import Header from "../appHeader/AppHeader"
-// import ComicsInfo from "../comicsInfo/SingleComic"
-// import CharInfo from "../charInfo/CharInfo"
-// import { MainPage, ComicsPage, CharPage, SingleComicPage, Page404 } from "../pages";
 
 const MainPage = lazy(() => import('../pages/MainPage'))
 const ComicsPage = lazy(() => import('../pages/ComicsPage'))
@@ -13,19 +10,20 @@ const SingleComicPage = lazy(() => import('../pages/SingleComicPage'))
 const Page404 = lazy(() => import('../pages/404'))
 
 const App = () => {
-  // const appClass = page === 'char' ? ('bg-decoration') : null
   return (
     <Router>
       <div className={'app'}>
         <Header/>
         <Suspense>
-          <Routes>
-            <Route path={'/'} element={<MainPage/>} />
-            <Route path={'comics'} element={<ComicsPage/>} />
-            <Route path={`comics/:comicId`} element={<SingleComicPage/>} />
-            <Route path={`/char/id`} element={<CharPage/>} />
-            <Route path={'*'} element={<Page404 />} />
-          </Routes>
+          <TransitionGroup>
+            <Routes>
+              <Route path={'/'} element={<CSSTransition classNames={'page'} timeout={600} in={true} key={1}><MainPage/></CSSTransition>} />
+              <Route path={'comics'} element={<CSSTransition classNames={'page'} timeout={600} in={true} key={2}><ComicsPage/></CSSTransition>} />
+              <Route path={`comics/:comicId`} element={<CSSTransition classNames={'page'} timeout={600} in={true} key={3}><SingleComicPage/></CSSTransition>} />
+              <Route path={`/char/id`} element={<CSSTransition classNames={'page'} timeout={600} in={true} key={4}><CharPage/></CSSTransition>} />
+              <Route path={'*'} element={<CSSTransition classNames={'page'} timeout={600} in={true} key={5}><Page404 /></CSSTransition>} />
+            </Routes>
+          </TransitionGroup>
         </Suspense>
       </div>
     </Router>
