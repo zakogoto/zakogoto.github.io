@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import './ComicsList.sass'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-const ComicsList = (props) => {
+const ComicsList = () => {
     
     const [comicsList, setComicsList] = useState([]);
     const [newItemLoading, setNewItemLoading] = useState(false);
@@ -40,22 +40,11 @@ const ComicsList = (props) => {
             setComicsEnded(ended);
     }
 
-    // const itemRefs = useRef([]);
-
-    // const focusOnItem = (id) => {
-    //     itemRefs.current.forEach(item => item.classList.remove('char-list__card_selected'));
-    //     itemRefs.current[id].classList.add('char-list__card_selected');
-    //     itemRefs.current[id].focus();
-    // }
-
-    const cards = comicsList.map((comic, i)=> {
+    const cards = comicsList.map(comic=> {
         let imgStyle = {'objectFit' : 'cover'}
         if (comic.thumbnail ==='http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
             imgStyle = {'objectFit' : 'сontain'};
         }
-        // } else if (item.thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708.gif') {
-        //     imgStyle = {'objectFit' : 'contain'};
-        // }
         return(
             <CSSTransition 
                 key={comic.id} 
@@ -65,7 +54,6 @@ const ComicsList = (props) => {
             >
                 <Link
                     to={`/comics/${comic.id}`}
-                    // ref={el => itemRefs.current[i] = el}
                     tabIndex={0}
                     className="comics-list__card">
                     <div className="comics-list__img">

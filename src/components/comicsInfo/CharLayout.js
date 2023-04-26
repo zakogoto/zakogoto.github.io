@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import './singlePage.sass'
+import { Helmet } from 'react-helmet';
 
 export default function CharLayout({data}) {
 
@@ -11,13 +12,22 @@ export default function CharLayout({data}) {
         imgStyle = {'objectFit' : 'contain'};
     }
     return (
-        <div className='single-page'>
-            <img src={thumbnail} alt={name} className="single-page__img-char" style={imgStyle}/>
-            <div className="single-page__text-block">
-                <h3 className="single-page__title">{name}</h3>
-                <p className="single-page__descr">{description}</p>
-            </div>
-            <Link to={'/'} className='single-page__btn'>Back to main</Link>
-        </div> 
+        <>
+            <Helmet>
+                <meta
+                name="description"
+                content={`${name} information`}
+                />
+                <title>{name}</title>
+            </Helmet>
+            <div className='single-page'>
+                <img src={thumbnail} alt={name} className="single-page__img-char" style={imgStyle}/>
+                <div className="single-page__text-block">
+                    <h3 className="single-page__title">{name}</h3>
+                    <p className="single-page__descr">{description}</p>
+                </div>
+                <Link to={'/'} className='single-page__btn'>Back to main</Link>
+            </div> 
+        </>
     )
 }

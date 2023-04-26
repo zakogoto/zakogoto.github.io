@@ -4,6 +4,7 @@ import CharList from '../charList/CharList';
 import ErrorBoundary from '../errorBoundary/ErrorBoundary';
 import CharSidePanel from '../charSidePanel/CharSidePanel';
 import Modal from '../modal/Modal';
+import { Helmet } from 'react-helmet';
 
 const MainPage = () => {
 
@@ -14,18 +15,25 @@ const MainPage = () => {
     }
     return (
         <>
-            <RandomChar/>
-            <section className="main">
-              <CharList onCharSelected={onCharSelected}/>
-              <div>
-                <ErrorBoundary>
-                  <CharSidePanel charId={selectedChar}/>
-                </ErrorBoundary>
-                <ErrorBoundary>
-                  <Modal/>
-                </ErrorBoundary>
-              </div>
-            </section>
+          <Helmet>
+            <meta
+              name="description"
+              content="Marvel information portal"
+            />
+            <title>Marvel information portal</title>
+          </Helmet>
+          <RandomChar/>
+          <section className="main">
+            <CharList onCharSelected={onCharSelected}/>
+            <div>
+              <ErrorBoundary>
+                <CharSidePanel charId={selectedChar}/>
+              </ErrorBoundary>
+              <ErrorBoundary>
+                <Modal/>
+              </ErrorBoundary>
+            </div>
+          </section>
         </>
     );
 };
