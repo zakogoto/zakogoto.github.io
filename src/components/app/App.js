@@ -2,11 +2,12 @@ import { lazy, Suspense } from "react";
 import {Routes, BrowserRouter as Router, Route} from "react-router-dom"
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import Header from "../appHeader/AppHeader"
+import CharLayout from "../comicsInfo/CharLayout";
+import ComicLayout from "../comicsInfo/ComicLayout";
 
 const MainPage = lazy(() => import('../pages/MainPage'))
 const ComicsPage = lazy(() => import('../pages/ComicsPage'))
-const CharPage = lazy(() => import('../pages/CharPage'))
-const SingleComicPage = lazy(() => import('../pages/SingleComicPage'))
+const SinglePage = lazy(() => import('../pages/SinglePage'))
 const Page404 = lazy(() => import('../pages/404'))
 
 const App = () => {
@@ -19,8 +20,8 @@ const App = () => {
             <Routes>
               <Route path={'/'} element={<CSSTransition classNames={'page'} timeout={600} in={true} key={1}><MainPage/></CSSTransition>} />
               <Route path={'comics'} element={<CSSTransition classNames={'page'} timeout={600} in={true} key={2}><ComicsPage/></CSSTransition>} />
-              <Route path={`comics/:comicId`} element={<CSSTransition classNames={'page'} timeout={600} in={true} key={3}><SingleComicPage/></CSSTransition>} />
-              <Route path={`/char/id`} element={<CSSTransition classNames={'page'} timeout={600} in={true} key={4}><CharPage/></CSSTransition>} />
+              <Route path={`comics/:id`} element={<CSSTransition classNames={'page'} timeout={600} in={true} key={3}><SinglePage dataType={'comic'} Component={ComicLayout}/></CSSTransition>} />
+              <Route path={`/char/:id`} element={<CSSTransition classNames={'page'} timeout={600} in={true} key={4}><SinglePage dataType={'char'} Component={CharLayout}/></CSSTransition>} />
               <Route path={'*'} element={<CSSTransition classNames={'page'} timeout={600} in={true} key={5}><Page404 /></CSSTransition>} />
             </Routes>
           </TransitionGroup>

@@ -40,7 +40,7 @@ const ComicsList = (props) => {
             setComicsEnded(ended);
     }
 
-    const itemRefs = useRef([]);
+    // const itemRefs = useRef([]);
 
     // const focusOnItem = (id) => {
     //     itemRefs.current.forEach(item => item.classList.remove('char-list__card_selected'));
@@ -65,7 +65,7 @@ const ComicsList = (props) => {
             >
                 <Link
                     to={`/comics/${comic.id}`}
-                    ref={el => itemRefs.current[i] = el}
+                    // ref={el => itemRefs.current[i] = el}
                     tabIndex={0}
                     className="comics-list__card">
                     <div className="comics-list__img">

@@ -21,7 +21,9 @@ const MainPage = () => {
                 <ErrorBoundary>
                   <CharSidePanel charId={selectedChar}/>
                 </ErrorBoundary>
-                <Modal modalType={'validationError'}/>
+                <ErrorBoundary>
+                  <Modal/>
+                </ErrorBoundary>
               </div>
             </section>
         </>

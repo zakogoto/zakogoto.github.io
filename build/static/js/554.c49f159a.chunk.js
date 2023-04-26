@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkmarvel_db=self.webpackChunkmarvel_db||[]).push([[554],{554:function(e,u,n){n.r(u);n(791);var r=n(184);u.default=function(){return(0,r.jsx)("div",{})}}}]);
-//# sourceMappingURL=554.c49f159a.chunk.js.map

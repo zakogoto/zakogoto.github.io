@@ -26,6 +26,7 @@ export default function useHttp() {
             } catch(e) {
                 setLoading(false);
                 setError(e.message);
+                console.log('ssssssss')
                 throw e;
             }
     }, [])
