@@ -2,8 +2,8 @@ import { lazy, Suspense } from "react";
 import {Routes, BrowserRouter as Router, Route} from "react-router-dom"
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import Header from "../appHeader/AppHeader"
-import CharLayout from "../comicsInfo/CharLayout";
-import ComicLayout from "../comicsInfo/ComicLayout";
+import CharLayout from "../singlePages/CharLayout";
+import ComicLayout from "../singlePages/ComicLayout";
 
 const MainPage = lazy(() => import('../pages/MainPage'))
 const ComicsPage = lazy(() => import('../pages/ComicsPage'))

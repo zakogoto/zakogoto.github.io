@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import  { Formik, Form, Field, ErrorMessage as FormikErrorMessage } from "formik";
 import * as Yup from 'yup';
 import useMarvelServices from '../../services/MarvelServices';
-import './Modal.sass'
+import './charSearch.sass'
 import ErrorMessage from '../UI/ErrorMessage';
 
-export default function Modal() {
+export default function CharSearch() {
 
     const [char, setChar] = useState(null);
     const {error, getCharacterByName, loading, clearError} = useMarvelServices();

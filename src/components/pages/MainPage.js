@@ -3,8 +3,9 @@ import RandomChar from '../randomChar/RandomChar';
 import CharList from '../charList/CharList';
 import ErrorBoundary from '../errorBoundary/ErrorBoundary';
 import CharSidePanel from '../charSidePanel/CharSidePanel';
-import Modal from '../modal/Modal';
+import CharSearch from '../charSearch/CharSearch';
 import { Helmet } from 'react-helmet';
+import CharsSearch from '../charsSearch/CharsSearch';
 
 const MainPage = () => {
 
@@ -23,6 +24,7 @@ const MainPage = () => {
             <title>Marvel information portal</title>
           </Helmet>
           <RandomChar/>
+          <CharsSearch/>
           <section className="main">
             <CharList onCharSelected={onCharSelected}/>
             <div>
@@ -30,7 +32,7 @@ const MainPage = () => {
                 <CharSidePanel charId={selectedChar}/>
               </ErrorBoundary>
               <ErrorBoundary>
-                <Modal/>
+                <CharSearch/>
               </ErrorBoundary>
             </div>
           </section>
